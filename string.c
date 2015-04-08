@@ -1,5 +1,6 @@
 #include <stdio.h>
-#define STLEN 14
+#define STLEN 30
+int counter(char *a);
 int main(void)
 {
 	char words[STLEN];
@@ -7,5 +8,19 @@ int main(void)
 	fgets(words, STLEN, stdin);
 	fputs(words, stdout);
 	fputs(words, stdout);
+	int a= counter(words);
+	printf("Number of words: %d\n", a);
 	return 0;
+}
+
+counter(char *a)
+{
+	int counter;
+	while (*a != '\0')
+	{
+		if (*a == ' ')
+			counter++;
+		*a++;
+	}
+	return ++counter;
 }
